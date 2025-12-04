@@ -25,36 +25,39 @@ body {
 
 /* Warna Dasar Amplop (Krem/Vintage) */
 .warna-dasar {
-    background-color: #edece0; 
+    background-color: #edece0; /* Krem Kusam */
     position: absolute;
     width: 100%;
     height: 100%;
     border-radius: 5px;
 }
 
-/* Pola Garis Tepi (Stripes Merah dan Biru) */
-.pola-garis {
-    /* Membuat garis tepi Air Mail menggunakan box-shadow */
-    box-shadow: 
-        inset 0 0 0 10px #cc3333, /* Garis Merah */
-        inset 0 0 0 20px #edece0, /* Garis Krem */
-        inset 0 0 0 30px #2a6f99, /* Garis Biru */
-        inset 0 0 0 40px #edece0; /* Garis Krem */
+/* --- PERUBAHAN UTAMA UNTUK POLA GARIS --- */
+
+.amplop-bagian-bawah {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #edece0;
     z-index: 2;
-    overflow: hidden;
     border-radius: 5px;
+    /* Membuat pola garis Air Mail dengan box-shadow */
+    box-shadow: 
+        inset 0 0 0 10px #cc3333, /* Merah */
+        inset 0 0 0 20px #edece0, /* Krem */
+        inset 0 0 0 30px #2a6f99, /* Biru */
+        inset 0 0 0 40px #edece0; /* Krem */
+    overflow: hidden;
 }
 
-/* Bagian Belakang Amplop */
+/* Bagian Belakang Amplop (Hanya Menampung Pola) */
 .belakang {
     top: 0;
     left: 0;
     z-index: 2;
-}
-.belakang.pola-garis {
-    position: absolute;
     width: 100%;
     height: 100%;
+    /* Mengganti .belakang.pola-garis menjadi div ini */
 }
 
 
@@ -65,7 +68,7 @@ body {
     height: 0;
     border-style: solid;
     border-width: 90px 125px 0 125px; 
-    border-color: #2a6f99 transparent transparent transparent; /* Warna Biru Tua */
+    border-color: #2a6f99 transparent transparent transparent; /* Biru Tua */
     top: 0;
     left: 0;
     transform-origin: top;
@@ -73,34 +76,18 @@ body {
     z-index: 4;
 }
 
-/* Bagian Depan Amplop (Segitiga Bawah dengan Pola) */
+/* --- PERUBAHAN UNTUK SEGITIGA DEPAN (Lipatan Bawah) --- */
+/* Kita ganti cara membuat segitiga agar lebih stabil */
 .depan {
     position: absolute;
     width: 0;
     height: 0;
     border-style: solid;
     border-width: 90px 125px 0 125px;
-    border-color: transparent transparent transparent transparent; 
+    border-color: #f7d29e transparent transparent transparent; /* Warna lipatan */
     bottom: 0;
     left: 0;
     z-index: 3;
-}
-/* Menambahkan Pola Garis pada Segitiga Depan (agar terlihat utuh) */
-.depan::before {
-    content: '';
-    position: absolute;
-    top: -90px;
-    left: -125px;
-    width: 250px;
-    height: 180px;
-    background-color: #edece0;
-    z-index: -1;
-    box-shadow: 
-        inset 0 0 0 10px #cc3333, 
-        inset 0 0 0 20px #edece0, 
-        inset 0 0 0 30px #2a6f99, 
-        inset 0 0 0 40px #edece0;
-    clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
 }
 
 
@@ -111,7 +98,7 @@ body {
     left: 15px;
     width: 220px;
     height: 150px;
-    background-color: #ffffff; /* Putih Polos */
+    background-color: #ffffff; 
     border-radius: 5px;
     padding: 15px;
     box-sizing: border-box;
@@ -127,8 +114,7 @@ body {
     color: #444;
 }
 
-
-/* --- Kelas Animasi (Ditambahkan oleh JavaScript) --- */
+/* --- Kelas Animasi --- */
 
 /* Amplop Terbuka: Memutar Tutup */
 .amplop.terbuka .tutup {
@@ -138,6 +124,6 @@ body {
 
 /* Amplop Terbuka: Mengeluarkan Surat/Kartu */
 .amplop.terbuka .surat {
-    transform: translateY(-100px); /* Ditarik ke atas */
+    transform: translateY(-100px); 
     z-index: 3;
 }
