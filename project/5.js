@@ -1,26 +1,27 @@
-const letter = document.getElementById("letter");
+let step = 0;
+
+const paper = document.getElementById("paper");
 const popup = document.getElementById("popup");
 const closeBtn = document.getElementById("closeBtn");
 
-// Klik kertas → naik + buka popup
-letter.addEventListener("click", () => {
-    letter.classList.add("open");
+document.addEventListener("click", () => {
+    step++;
 
-    setTimeout(() => {
-        popup.style.display = "flex";
-    }, 450);
-});
-
-// Tutup popup
-closeBtn.addEventListener("click", () => {
-    popup.style.display = "none";
-    letter.classList.remove("open");
-});
-
-// Klik area luar popup → tutup
-window.addEventListener("click", (e) => {
-    if (e.target === popup) {
-        popup.style.display = "none";
-        letter.classList.remove("open");
+    // Klik pertama → kertas keluar
+    if (step === 1) {
+        paper.classList.add("show");
+        return;
     }
+
+    // Klik kedua → popup muncul
+    if (step === 2) {
+        popup.style.display = "flex";
+        return;
+    }
+});
+
+// Tombol close
+closeBtn.addEventListener("click", (e) => {
+    popup.style.display = "none";
+    e.stopPropagation(); // Biar tidak memicu klik global
 });
