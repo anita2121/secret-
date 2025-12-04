@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archive</title>
+
+<style>
+body {
+    background: #4a5b9d;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    text-align: center;
+    padding-top: 40px;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+/* Container folder */
+.folder-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+/* Folder button */
+.folder-btn {
+    width: 140px;
+    height: 120px;
+    background: #ffe08a;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 45px;
+    font-weight: bold;
+    color: #3b2900;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    transition: 0.2s ease;
+}
+
+/* Tab folder (bagian atas kecil) */
+.folder-btn::before {
+    content: "";
+    width: 80px;
+    height: 25px;
+    background: #ffdf70;
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    border-radius: 6px 6px 0 0;
+}
+
+/* Hover */
+.folder-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+}
+
+/* Back button */
+.back-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 25px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+</style>
+
+</head>
+<body>
+
+<h1>Archive</h1>
+
+<div class="folder-container">
+    <a href="2024.html" class="folder-btn">2024</a>
+    <a href="2025.html" class="folder-btn">2025</a>
+</div>
+
+<a href="foryou.html" class="back-btn">Kembali</a>
+
+</body>
+</html>
