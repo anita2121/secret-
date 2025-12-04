@@ -114,7 +114,7 @@ body {
 }
 
 .btn-container {
-    display: ;
+    display: flex;
     justify-content: center; /* rata tengah horizontal */
     margin-top: 50px;        /* jarak dari teks di atas */
 }
