@@ -1,52 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kue Ulang Tahun</title>
-  
+
 <style>
 @import url(https://fonts.googleapis.com/css?family=Lato:300italic);
 
-html, body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background: #ee9ca7;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+html, body { width: 100%; height: 100%; margin: 0; padding: 0; }
+body { background: #ee9ca7; }
 
 /* Candle */
 .velas {
   background: #ffffff;
   border-radius: 10px;
   position: absolute;
-  top: 180px;
+  top: 228px;
   left: 50%;
-  margin-left: -2.5px;
-  width: 6px;
+  margin-left: -2.4px;
+  width: 5px;
   height: 35px;
   transform: translateY(-300px);
-  backface-visibility: hidden;
-  animation: in 700ms 4s ease-out forwards;
+  animation: in 500ms 6s ease-out forwards;
 }
-.velas:after,
-.velas:before {
+.velas:after, .velas:before {
   background: rgba(255, 0, 0, 0.4);
   content: "";
   position: absolute;
   width: 100%;
-  height: 2px;
+  height: 2.22px;
 }
-.velas:after { top: 25%; left: 0; }
-.velas:before { top: 45%; left: 0; }
+.velas:after { top: 25%; }
+.velas:before { top: 45%; }
 
 /* Fire */
 .fuego {
@@ -54,66 +40,66 @@ body {
   position: absolute;
   top: -20px;
   left: 50%;
-  margin-left: -3px;
-  width: 7px;
+  margin-left: -2.6px;
+  width: 6.66px;
   height: 18px;
 }
-.fuego:nth-child(1) { animation: fuego 2s 6s infinite; }
-.fuego:nth-child(2) { animation: fuego 1.5s 6s infinite; }
-.fuego:nth-child(3) { animation: fuego 1s 6s infinite; }
-.fuego:nth-child(4) { animation: fuego 0.5s 6s infinite; }
-.fuego:nth-child(5) { animation: fuego 0.2s 6s infinite; }
+.fuego:nth-child(1) { animation: fuego 2s 6.5s infinite; }
+.fuego:nth-child(2) { animation: fuego 1.5s 6.5s infinite; }
+.fuego:nth-child(3) { animation: fuego 1s 6.5s infinite; }
+.fuego:nth-child(4) { animation: fuego 0.5s 6.5s infinite; }
+.fuego:nth-child(5) { animation: fuego 0.2s 6.5s infinite; }
 
-/* Animation */
+/* Flame animation */
 @keyframes fuego {
   0%, 100% {
     background: rgba(254, 248, 97, 0.5);
-    box-shadow: 0 0 40px 10px rgba(248,233,209,0.5);
+    box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
     transform: translateY(0) scale(1);
   }
   50% {
-    background: rgba(255,50,0,0.2);
-    box-shadow: 0 0 40px 20px rgba(248,233,209,0.3);
+    background: rgba(255, 50, 0, 0.1);
+    box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
     transform: translateY(-20px) scale(0);
   }
 }
-@keyframes in {
-  to { transform: translateY(0); }
-}
 
-h1 {
+@keyframes in { to { transform: translateY(0); } }
+
+.text {
+  color: #8b6a60;
   font-family: "Lato", sans-serif;
   font-weight: 300;
-  font-size: 2em;
-  color: #fff;
-  margin-top: 10px;
+  text-align: center;
+  margin-top: 20px;
 }
 </style>
-</head>
 
+</head>
 <body>
 
-<!-- Candle flame -->
-<div class="velas">
-  <div class="fuego"></div>
-  <div class="fuego"></div>
-  <div class="fuego"></div>
-  <div class="fuego"></div>
-  <div class="fuego"></div>
+<div id="cake">
+
+  <div class="velas">
+    <div class="fuego"></div>
+    <div class="fuego"></div>
+    <div class="fuego"></div>
+    <div class="fuego"></div>
+    <div class="fuego"></div>
+  </div>
+
+  <!-- SVG Cake -->
+  <svg width="300" height="300" viewBox="0 0 300 300">
+    <ellipse cx="150" cy="260" rx="100" ry="30" fill="#d2691e"/>
+    <rect x="50" y="150" width="200" height="110" fill="#ffb347"/>
+    <rect x="50" y="120" width="200" height="40" fill="#ff8c69"/>
+  </svg>
+
 </div>
 
-<!-- SVG Cake -->
-<svg id="cake" version="1.1" x="0px" y="0px" width="220px" height="400px"
-     viewBox="0 0 200 400" xml:space="preserve">
-
-  <path fill="#F9DEDC" d="M20,260h160v80H20V260z"/>
-  <path fill="#E38B93" d="M20,260c30,30,50-30,80,0s50-30,80,0v20H20V260z"/>
-  <path fill="#F7B3B5" d="M20,320h160v60H20V320z"/>
-  <ellipse fill="#C97A85" cx="100" cy="260" rx="80" ry="20"/>
-
-</svg>
-
-<h1>🎉 Happy Birthday 🎉</h1>
+<div class="text">
+  <h1>Happy Birthday 🎂</h1>
+</div>
 
 </body>
 </html>
