@@ -1,7 +1,8 @@
 body {
     margin: 0;
     padding: 0;
-    background: #4a5b9d; /* warna background */
+    background: url("foto1.jpg") no-repeat center center;
+    background-size: cover;
     height: 100vh;
     display: flex;
     justify-content: center;
