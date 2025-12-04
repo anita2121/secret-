@@ -113,10 +113,11 @@ body {
   }
 }
 
-.btn-container {
-    display: flex;
+.btn-wrapper {
+    width: 100%;           /* pastikan full width */
+    display: flex;         /* gunakan flexbox */
     justify-content: center; /* rata tengah horizontal */
-    margin-top: 50px;        /* jarak dari teks di atas */
+    margin-top: 50px;      /* jarak dari teks di atas */
 }
 
 .btn {
