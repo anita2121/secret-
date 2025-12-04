@@ -1,7 +1,5 @@
-document.addEventListener("click", () => {
-    const card = document.querySelector(".card");
+let letter = document.getElementById("letter");
 
-    if (!card.classList.contains("show")) {
-        card.classList.add("show");
-    }
+letter.addEventListener("click", () => {
+    letter.classList.toggle("open");
 });
