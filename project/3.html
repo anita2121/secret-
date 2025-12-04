@@ -1,34 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Envelope Letter Popup</title>
-    <link rel="stylesheet" href="4.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Envelope Popup</title>
+  <link rel="stylesheet" href="4.css" />
 </head>
 <body>
 
-<div class="envelope">
-    <!-- Layer belakang amplop -->
-    <img src="foto1.png" class="back">
+<div class="envelope-wrapper">
 
-    <!-- KERTAS (pakai gambar kertas.png) -->
-    <div class="letter" id="letter">
-        <img src="kertas.png" class="kertas-img">
-    </div>
+    <!-- Layer bawah amplop -->
+    <img src="bawah.png" class="envelope-bottom">
 
-    <!-- Layer depan amplop -->
-    <img src="foto2.png" class="front">
+    <!-- Kertas -->
+    <img src="kertas.jpg" class="paper" id="paper">
+
+    <!-- Layer atas amplop -->
+    <img src="atas.png" class="envelope-top">
+
 </div>
 
-<!-- POP-UP ISI SURAT -->
-<div class="popup" id="popup">
-    <div class="popup-inner">
-        <span class="close" id="closeBtn">&times;</span>
-
-        <div class="popup-text">
-            <h2>Isi Surat</h2>
-            <p>Tulis isi surat kamu di sini…</p>
-        </div>
+<!-- Popup transparan -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span id="closeBtn" class="close">&times;</span>
+        <p>Isi surat ditaruh di sini...</p>
     </div>
 </div>
 
