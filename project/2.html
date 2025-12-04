@@ -11,16 +11,16 @@
 html, body {
   width: 100%;
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   background: #ee9ca7;
-}
-
-#cake {
-  display: block;
-  position: relative;
-  margin: -10em auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Candle */
@@ -28,15 +28,14 @@ body {
   background: #ffffff;
   border-radius: 10px;
   position: absolute;
-  top: 228px;
+  top: 180px;
   left: 50%;
-  margin-left: -2.4px;
-  margin-top: -8.33333333px;
-  width: 5px;
+  margin-left: -2.5px;
+  width: 6px;
   height: 35px;
   transform: translateY(-300px);
   backface-visibility: hidden;
-  animation: in 500ms 6s ease-out forwards;
+  animation: in 700ms 4s ease-out forwards;
 }
 .velas:after,
 .velas:before {
@@ -44,7 +43,7 @@ body {
   content: "";
   position: absolute;
   width: 100%;
-  height: 2.22222222px;
+  height: 2px;
 }
 .velas:after { top: 25%; left: 0; }
 .velas:before { top: 45%; left: 0; }
@@ -55,49 +54,46 @@ body {
   position: absolute;
   top: -20px;
   left: 50%;
-  margin-left: -2.6px;
-  width: 6.66666667px;
+  margin-left: -3px;
+  width: 7px;
   height: 18px;
 }
-.fuego:nth-child(1) { animation: fuego 2s 6.5s infinite; }
-.fuego:nth-child(2) { animation: fuego 1.5s 6.5s infinite; }
-.fuego:nth-child(3) { animation: fuego 1s 6.5s infinite; }
-.fuego:nth-child(4) { animation: fuego 0.5s 6.5s infinite; }
-.fuego:nth-child(5) { animation: fuego 0.2s 6.5s infinite; }
+.fuego:nth-child(1) { animation: fuego 2s 6s infinite; }
+.fuego:nth-child(2) { animation: fuego 1.5s 6s infinite; }
+.fuego:nth-child(3) { animation: fuego 1s 6s infinite; }
+.fuego:nth-child(4) { animation: fuego 0.5s 6s infinite; }
+.fuego:nth-child(5) { animation: fuego 0.2s 6s infinite; }
 
-/* Animation Fire */
+/* Animation */
 @keyframes fuego {
   0%, 100% {
     background: rgba(254, 248, 97, 0.5);
-    box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+    box-shadow: 0 0 40px 10px rgba(248,233,209,0.5);
     transform: translateY(0) scale(1);
   }
   50% {
-    background: rgba(255, 50, 0, 0.1);
-    box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
+    background: rgba(255,50,0,0.2);
+    box-shadow: 0 0 40px 20px rgba(248,233,209,0.3);
     transform: translateY(-20px) scale(0);
   }
 }
-
 @keyframes in {
   to { transform: translateY(0); }
 }
 
-.text {
-  color: #8b6a60;
+h1 {
   font-family: "Lato", sans-serif;
   font-weight: 300;
-  font-style: italic;
-  text-align: center;
-}
-.text h1 {
-  font-size: 1.4em;
+  font-size: 2em;
+  color: #fff;
+  margin-top: 10px;
 }
 </style>
 </head>
 
 <body>
 
+<!-- Candle flame -->
 <div class="velas">
   <div class="fuego"></div>
   <div class="fuego"></div>
@@ -106,10 +102,18 @@ body {
   <div class="fuego"></div>
 </div>
 
-<!-- Di sini tempat SVG cake kamu -->
-<svg id="cake">
-    <!-- paste path SVG kamu -->
+<!-- SVG Cake -->
+<svg id="cake" version="1.1" x="0px" y="0px" width="220px" height="400px"
+     viewBox="0 0 200 400" xml:space="preserve">
+
+  <path fill="#F9DEDC" d="M20,260h160v80H20V260z"/>
+  <path fill="#E38B93" d="M20,260c30,30,50-30,80,0s50-30,80,0v20H20V260z"/>
+  <path fill="#F7B3B5" d="M20,320h160v60H20V320z"/>
+  <ellipse fill="#C97A85" cx="100" cy="260" rx="80" ry="20"/>
+
 </svg>
 
+<h1>🎉 Happy Birthday 🎉</h1>
+
 </body>
-</html
+</html>
