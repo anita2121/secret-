@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Selamat Datang</title>
+
 <style>
 body {
     display: flex;
@@ -16,7 +17,8 @@ body {
     color: #fff;
     text-align: center;
 }
-.start-btn {
+
+.start-btn, .archive-btn {
     padding: 15px 30px;
     font-size: 20px;
     background: #ffffff;
@@ -24,22 +26,36 @@ body {
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    margin-top: 15px;
+    width: 200px;
 }
-.start-btn:hover {
+
+.start-btn:hover, .archive-btn:hover {
     background: #ecf0f1;
 }
 </style>
+
 </head>
 <body>
+
 <h1>Selamat Datang!</h1>
 <p>Tekan tombol di bawah untuk mulai 🎂</p>
+
+<!-- Tombol Mulai -->
 <button class="start-btn">mulai</button>
+
+<!-- Tombol Archive -->
+<button class="archive-btn">archive</button>
 
 <script>
 document.querySelector('.start-btn').addEventListener('click', () => {
-    // Pindah ke halaman cake
-    window.location.href = "2.html";
+    window.location.href = "2.html"; 
+});
+
+document.querySelector('.archive-btn').addEventListener('click', () => {
+    window.location.href = "archive.html"; 
 });
 </script>
+
 </body>
 </html>
