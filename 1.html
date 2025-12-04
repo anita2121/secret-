@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Contoh Velas (Lilin)</title>
+<style>
+  /* reset singkat */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(#e6f0ff, #ffffff);
+    font-family: system-ui, sans-serif;
+  }
+
+  /* wadah supaya mudah posisi */
+  .scene {
+    width: 200px;
+    height: 360px;
+    position: relative;
+  }
+
+  /* batang lilin (sesuai .velas dari input) */
+  .velas {
+    background: #ffffff;
+    border-radius: 10px;
+    position: absolute;
+    top: 120px;               /* sesuaikan */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;              /* lebarnya lebih realistis daripada 5px */
+    height: 140px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08), inset 0 6px 8px rgba(0,0,0,0.02);
+    backface-visibility: hidden;
+    overflow: visible;
+  }
+
+  /* efek cahaya / glow (menggunakan pseudo-element) */
+  .velas::before,
+  .velas::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 165, 0, 0.12); /* ringan */
+    border-radius: 50%;
+    top: -8px; /* sedikit di atas batang sebagai glow */
+    filter: blur(6px);
+    pointer-events: none;
+  }
+
+  /* tambahan layer glow dengan warna merah (sesuai snippet mu) */
+  .velas::after {
+    width: 140%;
+    height: 20px;
+    background: rgba(255, 0, 0, 0.12);
+    top: -18px;
+    filter: blur(10px);
+    opacity: 0;
+    animation: pulse 2s infinite ease-in-out;
+  }
+
+  /* sumbu / sumbu kecil di atas lilin */
+  .wick {
+    position: absolute;
+    top: 96px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 14px;
+    background: #222;
+    border-radius: 2px;
+    z-index: 3;
+  }
+
+  /* api lilin */
+  .flame {
+    position: absolute;
+    left: 50%;
+    top: 74px;
+    transform: translateX(-50%) translateY(0);
+    width: 22px;
+    height: 36px;
+    background: radial-gradient(circle at 50% 35%, #fff6a8 0%, #ffd26a 35%, #ff8a00 65%, rgba(255,90,0,0.9) 100%);
+    border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+    filter: blur(0.2px);
+    z-index: 2;
+    animation: flicker 1s infinite ease-in-out;
+    transform-origin: 50% 80%;
+    backface-visibility: hidden;
+  }
+
+  /* inti api yang lebih terang */
+  .flame::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 12%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 16px;
+    background: radial-gradient(circle at 40% 30%, #ffffff 0%, #fff0a5 50%, rgba(255,235,170,0.6) 100%);
+    border-radius: 50%;
+    filter: blur(0.6px);
+  }
+
+  /* animasi flicker dan pulse */
+  @keyframes flicker {
+    0%   { transform: translateX(-50%) translateY(0) scaleY(1); opacity: 1; }
+    25%  { transform: translateX(-52%) translateY(-2px) scaleY(0.98); opacity: 0.95; }
+    50%  { transform: translateX(-50%) translateY(0) scaleY(1.02); opacity: 1; }
+    75%  { transform: translateX(-48%) translateY(-1px) scaleY(0.99); opacity: 0.96; }
+    100% { transform: translateX(-50%) translateY(0) scaleY(1); opacity: 1; }
+  }
+
+  @keyframes pulse {
+    0% { opacity: 0.04; transform: translateX(-50%) scale(0.95); }
+    50% { opacity: 0.18; transform: translateX(-50%) scale(1.05); }
+    100% { opacity: 0.04; transform: translateX(-50%) scale(0.95); }
+  }
+
+  /* sedikit meja di bawah lilin */
+  .plate {
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 18px;
+    border-radius: 50%;
+    background: linear-gradient(#f4f4f4, #e0e0e0);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+  }
+
+  /* responsive kecil */
+  @media (max-width: 420px) {
+    .scene { transform: scale(0.9); }
+  }
+</style>
+</head>
+<body>
+
+  <div class="scene" aria-label="Contoh lilin">
+    <div class="velas"></div>
+    <div class="wick"></div>
+    <div class="flame" aria-hidden="true"></div>
+    <div class="plate"></div>
+  </div>
+
+</body>
+</html>
