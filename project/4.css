@@ -23,22 +23,12 @@ body {
     transition: transform 0.5s;
 }
 
-/* Warna Dasar Amplop (Krem/Vintage) */
-.warna-dasar {
-    background-color: #edece0; /* Krem Kusam */
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-}
-
-/* --- PERUBAHAN UTAMA UNTUK POLA GARIS --- */
-
+/* --- Elemen Baru: Badan Amplop dengan Pola Strip --- */
 .amplop-bagian-bawah {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #edece0;
+    background-color: #edece0; /* Krem Kusam */
     z-index: 2;
     border-radius: 5px;
     /* Membuat pola garis Air Mail dengan box-shadow */
@@ -49,17 +39,6 @@ body {
         inset 0 0 0 40px #edece0; /* Krem */
     overflow: hidden;
 }
-
-/* Bagian Belakang Amplop (Hanya Menampung Pola) */
-.belakang {
-    top: 0;
-    left: 0;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    /* Mengganti .belakang.pola-garis menjadi div ini */
-}
-
 
 /* Tutup Amplop (Segitiga Atas) */
 .tutup {
@@ -76,8 +55,7 @@ body {
     z-index: 4;
 }
 
-/* --- PERUBAHAN UNTUK SEGITIGA DEPAN (Lipatan Bawah) --- */
-/* Kita ganti cara membuat segitiga agar lebih stabil */
+/* Bagian depan amplop (Segitiga Lipatan Bawah) */
 .depan {
     position: absolute;
     width: 0;
@@ -98,7 +76,7 @@ body {
     left: 15px;
     width: 220px;
     height: 150px;
-    background-color: #ffffff; 
+    background-color: #ffffff; /* Putih Polos */
     border-radius: 5px;
     padding: 15px;
     box-sizing: border-box;
@@ -114,15 +92,14 @@ body {
     color: #444;
 }
 
-/* --- Kelas Animasi --- */
 
-/* Amplop Terbuka: Memutar Tutup */
+/* --- Kelas Animasi (Dipicu oleh Klik) --- */
+
 .amplop.terbuka .tutup {
     transform: rotateX(180deg);
     z-index: 5;
 }
 
-/* Amplop Terbuka: Mengeluarkan Surat/Kartu */
 .amplop.terbuka .surat {
     transform: translateY(-100px); 
     z-index: 3;
