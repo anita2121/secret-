@@ -114,6 +114,8 @@ body {
 }
 
 .btn {
+  display: block;
+  margin: 20px auto;
   padding: 10px 20px; 
   background: #ffffff;
   color: #2c3e50;
