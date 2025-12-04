@@ -1,4 +1,7 @@
-document.getElementById('amplop').addEventListener('click', function() {
-    // Menambahkan atau menghapus kelas CSS 'terbuka' saat diklik
-    this.classList.toggle('terbuka');
+document.addEventListener("click", () => {
+    const card = document.querySelector(".card");
+
+    if (!card.classList.contains("show")) {
+        card.classList.add("show");
+    }
 });
