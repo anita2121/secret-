@@ -7,11 +7,17 @@ const closeBtn = document.getElementById("closeBtn");
 document.addEventListener("click", () => {
     step++;
 
-    // Klik pertama → kertas keluar
-    if (step === 1) {
+        // Klik pertama
+    if (!paperShown) {
         paper.classList.add("show");
+        paperShown = true;
+
+        // mulai musik setelah klik pertama
+        try { bgm.play(); } catch(e) {}
+
         return;
     }
+
 
     // Klik kedua → popup muncul
     if (step === 2) {
