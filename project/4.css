@@ -1,14 +1,20 @@
+/* Background pakai foto.jpg */
 body {
-    background: black;
+    margin: 0;
+    padding: 0;
+    background: url("foto.jpg") no-repeat center center;
+    background-size: cover;
+
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
+/* Amplop container */
 .envelope {
     position: relative;
-    width: 320px; /* sesuaikan dengan ukuran gambarmu */
+    width: 330px;
 }
 
 .envelope img {
@@ -18,32 +24,77 @@ body {
 }
 
 .back {
-    z-index: 1;  /* layer belakang */
+    z-index: 1; /* layer belakang */
 }
 
 .front {
-    z-index: 3;  /* layer depan */
+    z-index: 3; /* layer depan */
 }
 
+/* Kertas */
 .letter {
     position: absolute;
     width: 80%;
-    height: 160px;
-    background: white;
-    top: 60%;       /* posisi awal di dalam amplop */
+    height: 170px;
+    top: 60%;
     left: 10%;
-    border-radius: 8px;
-    z-index: 2;     /* LAYER TENGAH (di antara back & front) */
-    transform: translateY(80px);  /* sembunyi di dalam amplop */
+    z-index: 2; /* TENGAH sandwich */
+
+    transform: translateY(90px); 
     transition: 0.8s ease;
     cursor: pointer;
 }
 
 .letter.open {
-    transform: translateY(-20px); /* kertas naik */
+    transform: translateY(-20px);
 }
 
-.letter-content {
-    padding: 15px;
-    color: black;
+/* gambar kertas */
+.kertas-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* POPUP */
+.popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35); /* lebih transparan */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* Glass effect popup */
+.popup-inner {
+    width: 350px;
+    padding: 20px;
+    background: rgba(255,255,255,0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+
+    animation: popupAnim 0.35s ease;
+}
+
+@keyframes popupAnim {
+    from { transform: scale(0.85); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
+.close {
+    float: right;
+    font-size: 26px;
+    cursor: pointer;
+    color: #000;
+}
+
+.popup-text {
+    color: #000;
+    margin-top: 10px;
 }
