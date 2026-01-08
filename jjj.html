@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Tiara</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffd6e8, #cfe9ff);
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      background: #ffffff;
+      padding: 30px 25px;
+      width: 320px;
+      border-radius: 18px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #e75480;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #loginBtn {
+      background: linear-gradient(90deg, #ff9acb, #8fd3f4);
+      color: white;
+      margin-top: 12px;
+    }
+
+    #cancelBtn {
+      margin-top: 8px;
+      background: #f2f2f2;
+      color: #555;
+    }
+
+    #logoutBtn {
+      margin-top: 15px;
+      background: #ff6b6b;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box" id="app"></div>
+
+  <script>
+    class LoginTiara {
+      constructor(containerId) {
+        this.container = document.getElementById(containerId);
+        this.initUserData();
+        this.showLoginForm();
+      }
+
+      initUserData() {
+        const users = [
+          { username: 'tiara', password: 'tiara123' }
+        ];
+        localStorage.setItem('tiaraUsers', JSON.stringify(users));
+      }
+
+      getUsers() {
+        return JSON.parse(localStorage.getItem('tiaraUsers'));
+      }
+
+      showLoginForm() {
+        this.container.innerHTML = `
+          <h2>Login</h2>
+          <input type="text" id="username" placeholder="Username">
+          <input type="password" id="password" placeholder="Password">
+          <button id="loginBtn">🐱 Login</button>
+          <button id="cancelBtn">Cancel</button>
+        `;
+
+        document.getElementById('loginBtn')
+          .addEventListener('click', () => this.handleLogin());
+
+        document.getElementById('cancelBtn')
+          .addEventListener('click', () => this.clearInput());
+      }
+
+      handleLogin() {
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+
+        const users = this.getUsers();
+        const validUser = users.find(
+          u => u.username === username && u.password === password
+        );
+
+        if (!validUser) {
+          alert('❌ Login gagal!');
+        } else {
+          this.showProfile(username);
+        }
+      }
+
+      showProfile(username) {
+        this.container.innerHTML = `
+          <h2>Welcome 💖</h2>
+          <p>Hai <b>${username}</b>, kamu berhasil login</p>
+          <button id="logoutBtn">Logout</button>
+        `;
+
+        document.getElementById('logoutBtn')
+          .addEventListener('click', () => this.showLoginForm());
+      }
+
+      clearInput() {
+        document.getElementById('username').value = '';
+        document.getElementById('password').value = '';
+      }
+    }
+
+    new LoginTiara('app');
+  </script>
+
+</body>
+</html>
